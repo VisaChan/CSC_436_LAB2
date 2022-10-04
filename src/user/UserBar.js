@@ -8,7 +8,9 @@ export default function UserBar({user, dispatch}) {
     if (user) {
         return (
             <Navbar bg ="primary" variant="dark">
-                <Logout user={user} dispatch={dispatch} />
+                <Navbar.Brand href="">
+                    <Logout user={user} dispatch={dispatch} />
+                </Navbar.Brand>
             </Navbar>
         )
     } else {
