@@ -5,6 +5,7 @@ import CreateTodo from "./todo/CreateTodo";
 import {v4 as uuidv4} from 'uuid'
 
 import appReducer from "./reducers";
+import ClearFinishedTodo from "./todo/ClearFinishedTodo";
 
 function App() {
 
@@ -39,6 +40,10 @@ function App() {
         <UserBar user={state.user} dispatch={dispatch} />
         <TodoList todos={state.todos} dispatch={dispatch} />
         {state.user && <CreateTodo user={state.user} dispatch={dispatch}/>}
+        <div style={{marginTop: 50}}>
+          {state.user && <ClearFinishedTodo dispatch={dispatch} />}
+        </div>
+        
     </div>
   );
 }

@@ -4,13 +4,12 @@ export default function Todo ({ title, description, author, created, checked, fi
 
     return (
         <div>
-            <div>
+            <div style={{marginBottom: 10}}>
                 <h2>{title}</h2>
                 <small>Made by: <b>{author}</b></small>
             </div>
-            <div>
+            <div >
                 <p>{description}</p>
-
             </div>
             <div>
                 <br/>

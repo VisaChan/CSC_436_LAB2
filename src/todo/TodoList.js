@@ -4,7 +4,7 @@ export default function TodoList ({todos = [], dispatch}) {
     return (
         <div>
         {todos.map((p, i) => (
-            <div key={p.id}>
+            <div key={p.id} style={{marginBottom: 50}}>
                 <Todo {...p}  />
                 <input id="check" type="checkbox" onChange={() => dispatch({type:"TOGGLE_TODO", id: p.id, checked:p.checked})}/>
                 <br/>

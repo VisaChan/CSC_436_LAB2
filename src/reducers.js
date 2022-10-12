@@ -27,7 +27,8 @@ function userReducer(state, action) {
           return item;
         })
         return newList;
-        
+      case "CLEAR_FINISHED_TODO":
+        return state.filter((item) => item.checked !== true);
       default:
         return state;
     }
