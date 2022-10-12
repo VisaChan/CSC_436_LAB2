@@ -1,20 +1,6 @@
 import { useState } from 'react'
 
-export default function Todo ({ title, description, author, created}) {
-
-    const [checked, setChecked] = useState(false)
-    const [completed, setCompleted] = useState("N/A");
-
-    const handleCheck = (event) => {
-        if(event.target.checked){
-            setCompleted((new Date(Date.now())).toString());
-        }
-        else{
-            setCompleted("N/A");
-        }
-
-        setChecked(!checked)
-    }
+export default function Todo ({ title, description, author, created, checked, finished}) {
 
     return (
         <div>
@@ -32,10 +18,8 @@ export default function Todo ({ title, description, author, created}) {
                 <br/>
                 <small>Completed?: <b>{checked ? "Yes" : "No"}</b></small>
                 <br/>
-                <small>Date Finished: <b>{completed}</b></small>
+                <small>Date Finished: <b>{finished}</b></small>
             </div>
-
-            <input id="check" type="checkbox" onChange={handleCheck}/>
         </div>
     )
 }

@@ -14,7 +14,7 @@ export default function CreateTodo ({user, dispatch}) {
     return(
         <form onSubmit={e => {
             e.preventDefault(); 
-            dispatch({ type: "CREATE_TODO", title, description, author: user, created: (new Date(Date.now())).toString(), id: uuidv4() });
+            dispatch({ type: "CREATE_TODO", title, description, author: user, created: (new Date(Date.now())).toString(), checked: false, finished: "N/A", id: uuidv4() });
             } }>
         <div>Author: <b> {user}</b></div>
         <div>
