@@ -41,7 +41,7 @@ function App() {
         <TodoList todos={state.todos} dispatch={dispatch} />
         {state.user && <CreateTodo user={state.user} dispatch={dispatch}/>}
         <div style={{marginTop: 50}}>
-          {state.user && <ClearFinishedTodo dispatch={dispatch} />}
+          <ClearFinishedTodo dispatch={dispatch} />
         </div>
         
     </div>

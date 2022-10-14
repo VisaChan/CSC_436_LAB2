@@ -15,4 +15,3 @@ export default function TodoList ({todos = [], dispatch}) {
         
     )
 }
-//onChange={dispatch({type: "TOGGLE_TODO", id: p.id, checked:false, finished:"N/A"})}}
