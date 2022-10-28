@@ -3,13 +3,18 @@ import Logout from './Logout'
 import Register from './Register'
 import Navbar from 'react-bootstrap/Navbar'
 
-export default function UserBar({user, dispatch}) {
+import { useContext } from 'react'
+import { StateContext } from '../contexts'
+
+export default function UserBar() {
     
-    if (user) {
+    const { state } = useContext(StateContext);
+
+    if (state.user) {
         return (
             <Navbar bg ="primary" variant="dark">
                 <Navbar.Brand href="">
-                    <Logout user={user} dispatch={dispatch} />
+                    <Logout />
                 </Navbar.Brand>
             </Navbar>
         )
@@ -17,8 +22,8 @@ export default function UserBar({user, dispatch}) {
         return (
             <Navbar bg ="primary" variant="dark">
                 <Navbar.Brand href="">
-                    <Login dispatch={dispatch} />
-                    <Register dispatch={dispatch} />
+                    <Login  />
+                    <Register  />
                 </Navbar.Brand>
             </Navbar>
 

@@ -19,6 +19,7 @@ function userReducer(state, action) {
       case "DELETE_TODO":
         return state.filter((item) => item.id !== action.id);
       case "TOGGLE_TODO":
+        console.log(action.id);
         const newList = state.map((item) => {
           if(item.id === action.id){
             const toggledItem = {...item, checked: !item.checked, finished: ((item.finished === "N/A")) ? new Date(Date.now()).toString() : "N/A"};
@@ -29,6 +30,8 @@ function userReducer(state, action) {
         return newList;
       case "CLEAR_FINISHED_TODO":
         return state.filter((item) => item.checked !== true);
+      case "FETCH_POSTS":
+        return action.todos;
       default:
         return state;
     }

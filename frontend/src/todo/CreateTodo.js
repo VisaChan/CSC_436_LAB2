@@ -1,21 +1,35 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import {v4 as uuidv4} from 'uuid'
 
-export default function CreateTodo ({user, dispatch}) {
+import { StateContext } from '../contexts'
+import { useResource } from "react-request-hook";
+
+export default function CreateTodo () {
 
     const [ title, setTitle ] = useState('')
     const [ description, setDescription ] = useState('')
+    const [ uid, setUid] = useState(uuidv4());
+
+    const {state, dispatch} = useContext(StateContext);
+    const { user } = state;
+
+    const [todo , createTodo ] = useResource(({ title, description, author, created, checked, finished, id}) => ({
+        url: '/todos',
+        method: 'post',
+        data: { title, description, author, created, checked, finished, id}
+    }))
         
+    
     function handleTitle (evt) { setTitle(evt.target.value) }
 
     function handleDescription (evt) { setDescription(evt.target.value) }
     
-
     return(
         <form onSubmit={e => {
             e.preventDefault(); 
+            createTodo({title, description, author: user, created: (new Date(Date.now())).toString(), checked: false, finished: "N/A", id: uid});
             dispatch({ type: "CREATE_TODO", title, description, author: user, 
-            created: (new Date(Date.now())).toString(), checked: false, finished: "N/A", id: uuidv4() });
+            created: (new Date(Date.now())).toString(), checked: false, finished: "N/A", id: uid });
             } }>
         <div>Author: <b> {user}</b></div>
         <div>
@@ -29,3 +43,4 @@ export default function CreateTodo ({user, dispatch}) {
 }
 
 
+//state.todos.length + 1

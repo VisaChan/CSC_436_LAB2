@@ -1,4 +1,9 @@
-export default function ClearFinishedTodo({dispatch}){
+import { StateContext } from '../contexts';
+import { useContext } from "react";
+
+export default function ClearFinishedTodo(){
+
+    const { dispatch } = useContext(StateContext);
 
     return (
         <form

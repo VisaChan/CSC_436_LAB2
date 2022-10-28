@@ -1,0 +1,58 @@
+{
+  "todos": [
+    {
+      "title": "Make this Todo",
+      "description": "Make a default todo",
+      "author": "Larry David AKA Anon",
+      "created": "Thu Mar 03 1988 07:13:45 GMT-0500 (Central Daylight Time)",
+      "checked": true,
+      "finished": "Fri Oct 28 2022 13:42:49 GMT-0500 (Central Daylight Time)",
+      "id": 1
+    },
+    {
+      "title": "Make Another todo",
+      "description": "Make another todo for later",
+      "author": "Anonymous",
+      "created": "Wed Dec 17 2003 16:22:55 GMT-0500 (Central Daylight Time)",
+      "checked": true,
+      "finished": "Fri Oct 28 2022 13:42:47 GMT-0500 (Central Daylight Time)",
+      "id": 2
+    },
+    {
+      "title": "Make a Todo for Lab 4",
+      "description": "Should be stored in the database",
+      "author": "test102822@test.com",
+      "created": "Fri Oct 28 2022 13:42:36 GMT-0500 (Central Daylight Time)",
+      "checked": true,
+      "finished": "Fri Oct 28 2022 13:46:18 GMT-0500 (Central Daylight Time)",
+      "id": "ae9c3d33-3919-45d6-a789-e96095017093"
+    }
+  ],
+  "users": [
+    {
+      "email": "Charles@suns.com",
+      "password": "$2a$10$PmCCY37XORlPnwzDw17hK.723eR1IAM1Gi63Sylvrbea0NCsSFJRW",
+      "id": 2
+    },
+    {
+      "email": "CBarkley@suns.com",
+      "password": "$2a$10$PPu4HZ90p1QsMvvwK5o6I.7mAql/Il0lAJ5YERDgdwtuRAEvOI/kq",
+      "id": 3
+    },
+    {
+      "email": "test1@test.com",
+      "password": "$2a$10$q4VdLXz8DFEYIJ.yTr.q7.91LSh8fnMIO0DpfsvToY0vNr6Ez/vWG",
+      "id": 4
+    },
+    {
+      "email": "test100@test.com",
+      "password": "$2a$10$KYS.Z.t45PIqNIi.e.OZcOu7f5Sxl6pXmQXvtCaSnaEhCdlzcKfIW",
+      "id": 5
+    },
+    {
+      "email": "test102822@test.com",
+      "password": "$2a$10$Gz.DcFTcbn/sxNvmnl7x0OK4g/wA2pXiEda7PB0CaIb3nBVwoKS56",
+      "id": 6
+    }
+  ]
+}
