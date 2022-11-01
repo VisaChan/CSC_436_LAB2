@@ -23,9 +23,6 @@ export default function Register() {
     }
   }, [user]);
 
-  //   function handleUsername(evt) {
-  //     setUsername(evt.target.value);
-  //   }
   function handlePassword(evt) {
     setPassword(evt.target.value);
   }

@@ -20,12 +20,12 @@
     },
     {
       "title": "Make a Todo for Lab 4",
-      "description": "Should be stored in the database",
-      "author": "test102822@test.com",
-      "created": "Fri Oct 28 2022 13:42:36 GMT-0500 (Central Daylight Time)",
+      "description": "This Todo should be added to the database",
+      "author": "test1101@test.com",
+      "created": "Tue Nov 01 2022 14:11:02 GMT-0500 (Central Daylight Time)",
       "checked": true,
-      "finished": "Fri Oct 28 2022 13:46:18 GMT-0500 (Central Daylight Time)",
-      "id": "ae9c3d33-3919-45d6-a789-e96095017093"
+      "finished": "Tue Nov 01 2022 14:11:28 GMT-0500 (Central Daylight Time)",
+      "id": 3
     }
   ],
   "users": [
@@ -53,6 +53,16 @@
       "email": "test102822@test.com",
       "password": "$2a$10$Gz.DcFTcbn/sxNvmnl7x0OK4g/wA2pXiEda7PB0CaIb3nBVwoKS56",
       "id": 6
+    },
+    {
+      "email": "abc@abc.abc",
+      "password": "$2a$10$Q3LPk76HUUyfkc5W4ArUMesxwstpPzYNwCmgw1jgLJk9x7QsaeYDS",
+      "id": 7
+    },
+    {
+      "email": "test1101@test.com",
+      "password": "$2a$10$U6k6mwC16nCqQrhjUdvOsu09CxUEJRpi83BjwIssnV6D3MSIivXNm",
+      "id": 8
     }
   ]
 }
