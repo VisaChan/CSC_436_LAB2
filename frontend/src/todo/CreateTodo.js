@@ -1,24 +1,30 @@
 import { useState, useContext, useEffect } from 'react'
-import {v4 as uuidv4} from 'uuid'
+//import {v4 as uuidv4} from 'uuid'
 
 import { StateContext } from '../contexts'
 import { useResource } from "react-request-hook";
+
+
+import { useNavigate } from "react-router-dom";
 
 export default function CreateTodo () {
 
     const [ title, setTitle ] = useState('')
     const [ description, setDescription ] = useState('')
-    const [ uid ] = useState(uuidv4());
+    //const [ uid ] = useState(uuidv4());
 
     const [error, setError] = useState(false);
 
     const {state, dispatch} = useContext(StateContext);
     const { user } = state;
 
-    const [todo , createTodo ] = useResource(({ title, description, author, created, checked, finished}) => ({
-        url: '/todos',
+    const navigate = useNavigate();
+
+    const [todo , createTodo ] = useResource(({ title, description, author, created, checked, finished, username}) => ({
+        url: '/todo',
         method: 'post',
-        data: { title, description, author, created, checked, finished}
+        headers: {"Authorization": `${state.user.access_token}`},
+        data: { title, description, created, checked, finished, username}
     }))
         
     
@@ -28,21 +34,20 @@ export default function CreateTodo () {
 
 
     useEffect(() => {
-        if (todo?.error) {
-          setError(true);
-          //alert("Something went wrong creating post.");
-        }
         if (todo?.isLoading === false && todo?.data) {
           dispatch({
             type: "CREATE_TODO",
             title: todo.data.title,
             description: todo.data.description,
-            author: todo.data.author,
+            author: user.username,
             created: todo.data.created,
             checked: todo.data.checked,
             finished: todo.data.finished,
-            id: todo.data.id,
+            id: todo.data._id,
+            username: todo.data.username
           });
+
+          navigate(`/`);
         }
       }, [todo]);
 
@@ -50,10 +55,10 @@ export default function CreateTodo () {
     return(
         <form onSubmit={e => {
             e.preventDefault(); 
-            createTodo({title, description, author: user, created: (new Date(Date.now())).toString(), checked: false, finished: "N/A"});
+            createTodo({title, description, author: user, created: (new Date(Date.now())).toString(), checked: false, finished: "N/A", username: user.username});
 
             } }>
-        <div>Author: <b> {user}</b></div>
+        <div>Author: <b> {user.username}</b></div>
         <div>
             <label htmlFor="create-title">Title:</label>
             <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" />
@@ -66,6 +71,3 @@ export default function CreateTodo () {
 
 
 //state.todos.length + 1
-
-//            dispatch({ type: "CREATE_TODO", title, description, author: user, 
-//created: (new Date(Date.now())).toString(), checked: false, finished: "N/A", id: uid });

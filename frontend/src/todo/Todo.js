@@ -1,12 +1,16 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
-export default function Todo ({ title, description, author, created, checked, finished}) {
+export default function Todo ({ title, description, author, created, checked, finished, _id, username}) {
+
+
 
     return (
         <div>
             <div style={{marginBottom: 10}}>
-                <h2>{title}</h2>
-                <small>Made by: <b>{author}</b></small>
+            <Link to={`/todo/${_id}`}> <h3 style={{ color: "black" }}>{title}</h3> </Link>
+            
+            <small>Made by: <b>{username}</b></small>
             </div>
             <div >
                 <p>{description}</p>
