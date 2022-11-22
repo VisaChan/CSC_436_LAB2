@@ -21,7 +21,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (todos && todos.isLoading === false && todos.data) {
-      dispatch({ type: "FETCH_POSTS", todos: todos.data.todos.reverse(), username: state.user.username });
+      dispatch({ type: "FETCH_POSTS", todos: todos.data.todos.reverse()});
     }
   }, [todos]);
 
